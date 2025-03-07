@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Personal Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header and Navigation -->
+  <header>
+    <div class="container">
+      <ul class="menu">
+        <li><a href="#education">Education</a></li>
+        <li><a href="#work">Work Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  <!-- Profile Section -->
+  <section id="profile">
+    <div class="container">
+      <div class="profile">
+        <div class="profile-img">
+          <img src="profile/1.svg" alt="Rui Wu (Rena)" style="width: 250px; height: auto; max-width: 100%; border-radius: 50%;">
+        </div>
+        <div class="profile-info">
+          <h1>Rui Wu (Rena)</h1>
+          <p class="summary">
+            Rui Wu is a skilled computational biologist and computer scientist with expertise in data analysis, NLP, deep learning, and software development. She has experience in genomic expression analysis, blockchain, and homomorphic encryption, and has developed high-performance algorithms for seismic wave simulations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Master in Computational Biology and Bioinformatics</h3>
+          <span>08/2024 - Present</span>
+          <p>Yale University</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Bachelor of Science in Computer Science</h3>
+          <span>04/2021 - 06/2024</span>
+          <p>University of California, San Diego</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Work Experience Section -->
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Research Assistant</h3>
+          <span>Computational pipeline developer, 12/2024 - Present</span>
+          <p>Designed and optimized computational pipelines for genomic expression analysis, improving data processing efficiency. Developed and maintained data workflows using Python, R, and SQL to analyze large-scale biological datasets.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Research Assistant</h3>
+          <span>Blockchain and homomorphic encryption, 08/2024 - Present</span>
+          <p>Research on blockchain and homomorphic encryption, synthesizing findings for analysis and implementation. Developed a blockchain system integrating homomorphic encryption to enhance secure computation and data privacy. Implemented smart contracts using Solidity and optimized cryptographic algorithms in Java and C++.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Student Intern</h3>
+          <span>Southern California Earthquake Center, 04/2022 - 04/2024</span>
+          <p>Engineered high-performance seismic wave simulation algorithms in C++ using the Kokkos library for GPU and multi-threaded parallelization. Conducted analysis of seismic datasets, applying machine learning techniques for pattern recognition and predictive modeling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              Depression Dataset Analysis & Prediction Web App
+            </div>
+            <div class="card-back">
+              <h3>Depression Dataset Analysis & Prediction Web App</h3>
+              <p>Analyzed the Depression Professional Dataset to uncover patterns and correlations related to mental health. Implemented K-Nearest Neighbors (KNN) and Logistic Regression models to predict potential mental health outcomes. Designed an interactive Flask-based web app to allow users to explore the dataset via visualization including bar graph and PCA, visualize key insights, and interact with predictive models.</p>
+              <a href="#" target="_blank">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container contact">
+      <h2>Contact Me</h2>
+      <div class="social-icons">
+        <a href="mailto:abc@gmail.com" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Rui Wu (Rena). All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- JavaScript for extra interactivity -->
+  <script>
+    // Smooth scroll for internal links (if browser doesn't support CSS scroll-behavior)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+    
+    // Intersection Observer for unfolding timeline items on scroll
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+    
+    timelineItems.forEach(item => {
+      observer.observe(item);
+    });
+  </script>
+</body>
+</html>
